@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
+import { BsMoon } from 'react-icons/bs';
+import { CgSun } from 'react-icons/cg';
+import Color from './pages/Color/Color';
+import {BrowserRouter as Router, Route, Switch  } from 'react-router-dom';
+
 
 function App() {
+  const [click ,setClick] = useState(false);
+  const handleClick = () => setClick(!click)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router >
+      <div className={click ? 'lightMode' : 'darkMode' }>
+        <nav className='navbar'>
+          <h1>Color.Js</h1>
+          <div className='nightMode' onClick={handleClick} >
+                {click ?   <CgSun/>: <BsMoon/> }
+                </div>
+        </nav>
+        <Switch>
+          <Route parh='/' exact component={Color} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

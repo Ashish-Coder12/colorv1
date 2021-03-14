@@ -1,0 +1,37 @@
+.card{
+    border: 1px solid black;
+    height: 250px;
+    width: 170px;
+    border-radius: 20px;
+
+    transition: all 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card:hover{
+    transform: scale(1.03);
+}
+.copy{
+    font-size: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.copyDone{
+    font-size: 20px;
+    font-weight: 600;
+}
+.copyDone :nth-child(1){
+    background-color: green;
+    border-radius: 5px;
+    margin-left: 5px;
+    font-weight: 900;
+    font-size: 30px;
+}
+@media screen and (max-width:382px){
+    .card{
+        height: 200px;
+        width: 150px;
+    }
+}
